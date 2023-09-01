@@ -1,0 +1,51 @@
+<ng-container [ngTemplateOutlet]="todolist"></ng-container>
+<ng-container
+  [ngTemplateOutlet]="showModal == true ? modal : null"
+></ng-container>
+
+<ng-template #todolist>
+  <main>
+    <div class="todo-list">
+      <div class="header">
+        <div id="currentDate">
+          <h2 dir="rtl">{{ date.getDate() }}</h2>
+          <div>
+            <span>{{ getMonthName(date) }}</span>
+            <span>{{ date.getFullYear() }}</span>
+          </div>
+        </div>
+        <h3 id="currentDay">{{ getDayName(date) }}</h3>
+      </div>
+
+      <section class="content">
+        <ul>
+          <li *ngFor="let item of todoList">
+            <div class="actions">
+              <button
+                role="update"
+                dir="rtl"
+                (click)="handleUpdateItem(item)"
+              ></button>
+              <button role="delete" (click)="handleDeleteItem(item)"></button>
+            </div>
+            <label for="list-input1">{{ item?.title }}</label>
+          </li>
+        </ul>
+      </section>
+
+      <div class="footer">
+        <button (click)="handleAddItem()"></button>
+      </div>
+    </div>
+  </main>
+</ng-template>
+
+<ng-template #modal>
+  <app-todo-list-form
+    [details]="details"
+    (close)="showModal = false"
+    (returnedData)="handleRecievedDate($event)"
+    [showModal]="showModal"
+    [title]="isEdit ? 'update item' : 'add new item'"
+  ></app-todo-list-form>
+</ng-template>

@@ -1,0 +1,25 @@
+<div class="overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+      <button (click)="handleCloseDialog()"></button>
+    </div>
+
+    <div class="modal-content">
+      <form [formGroup]="form">
+        <input type="text" formControlName="title" />
+      </form>
+    </div>
+
+    <div class="modal-actions">
+      <button type="button" (click)="handleCloseDialog()">Cancel</button>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        (click)="handleFormSubmit()"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

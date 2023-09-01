@@ -1,0 +1,117 @@
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  header .sub-header {
+    background: #004e75 !important;
+    padding: 0 0.5em !important;
+    margin: 0 !important;
+    padding: 0 0.5em !important;
+  }
+  header .sub-header > div:nth-child(2) h3 {
+    margin-right: 0.2em !important;
+  }
+  header .sub-header h3 {
+    font-size: 0.7em;
+  }
+  header .sub-header .img-style {
+    background: #fff !important;
+    padding: 5px !important;
+    width: 1.5em !important;
+  }
+  header .sub-header .img-style img {
+    filter: saturate(0.5) !important;
+  }
+  header > img {
+    display: none;
+  }
+  .lang {
+    padding: 0em 2em 6em 0 !important;
+  }
+  .todo-list {
+    width: 80% !important;
+  }
+  .todo-list .header {
+    flex-direction: column;
+  }
+  .todo-list .header h3 {
+    font-size: 1em;
+  }
+}
+/* Extra Small Devices, Phones */
+@media (min-width: 320px) and (max-width: 480px) {
+  header .sub-header {
+    background: #004e75 !important;
+    padding: 0 0.5em !important;
+    margin: 0 !important;
+    padding: 0 1em !important;
+  }
+  header .sub-header h3 {
+    font-size: 0.7em;
+  }
+  header .sub-header .img-style {
+    background: #fff !important;
+    padding: 5px !important;
+  }
+  header .sub-header .img-style img {
+    filter: saturate(0.5) !important;
+  }
+  header > img {
+    display: none;
+  }
+  .lang {
+    margin: 2em 0;
+  }
+  .todo-list {
+    width: 80% !important;
+  }
+  .todo-list .header {
+    flex-direction: column;
+  }
+  .todo-list .header h3 {
+    font-size: 1em;
+  }
+}
+/* Small Devices, Tablets */
+@media (min-width: 480px) and (max-width: 768px) {
+  header .sub-header {
+    background: #004e75 !important;
+    padding: 0 0.5em !important;
+    margin: 0 !important;
+  }
+  header .sub-header h3 {
+    font-size: 1em;
+  }
+  header .sub-header .img-style {
+    background: #fff !important;
+    padding: 5px !important;
+  }
+  header .sub-header .img-style img {
+    filter: saturate(0.5) !important;
+  }
+  header > img {
+    left: 2em !important;
+    top: 5em !important;
+    width: 4em;
+  }
+  .todo-list {
+    width: 60% !important;
+  }
+  .todo-list .header {
+    flex-direction: column;
+  }
+  .todo-list .header h3 {
+    font-size: 1em;
+  }
+}
+/* Medium Devices, Desktops */
+@media (min-width: 768px) and (max-width: 992px) {
+  .todo-list {
+    width: 40% !important;
+  }
+  .todo-list .header {
+    flex-direction: column;
+  }
+  .todo-list .header h3 {
+    font-size: 1em;
+  }
+}
+/* Large Devices, Wide Screens *//*# sourceMappingURL=responsive.css.map */

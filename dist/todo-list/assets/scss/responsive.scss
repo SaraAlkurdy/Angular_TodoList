@@ -1,0 +1,100 @@
+@use "variables" as variables;
+@use "functions" as functions;
+@use "mixins" as mixins;
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  header {
+    .sub-header {
+      @include mixins.responsive-header;
+      padding: 0 0.5em !important;
+      > div {
+        &:nth-child(2) {
+          h3 {
+            margin-right: 0.2em !important;
+          }
+        }
+      }
+      h3 {
+        font-size: 0.7em;
+      }
+
+      .img-style {
+        @include mixins.responsive-img-style;
+        width: 1.5em !important;
+      }
+    }
+    > img {
+      display: none;
+    }
+  }
+  .lang {
+    padding: 0em variables.$primary-size 6em 0 !important;
+  }
+  .todo-list {
+    width: 80% !important;
+    @include mixins.responsive-todo-list-header;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media (min-width: 320px) and (max-width: 480px) {
+  header {
+    .sub-header {
+      @include mixins.responsive-header;
+      padding: 0 1em !important;
+      h3 {
+        font-size: 0.7em;
+      }
+      .img-style {
+        @include mixins.responsive-img-style;
+      }
+    }
+    > img {
+      display: none;
+    }
+  }
+  .lang {
+    margin: variables.$primary-size 0;
+  }
+  .todo-list {
+    width: 80% !important;
+    @include mixins.responsive-todo-list-header;
+  }
+}
+
+/* Small Devices, Tablets */
+@media (min-width: 480px) and (max-width: 768px) {
+  header {
+    .sub-header {
+      @include mixins.responsive-header;
+      h3 {
+        font-size: 1em;
+      }
+      .img-style {
+        @include mixins.responsive-img-style;
+      }
+    }
+    > img {
+      left: variables.$primary-size !important;
+      top: 5em !important;
+      width: 4em;
+    }
+  }
+  .todo-list {
+    width: 60% !important;
+    @include mixins.responsive-todo-list-header;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media (min-width: 768px) and (max-width: 992px) {
+  .todo-list {
+    width: 40% !important;
+    @include mixins.responsive-todo-list-header;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+}

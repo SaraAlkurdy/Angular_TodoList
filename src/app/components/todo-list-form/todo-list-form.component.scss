@@ -1,0 +1,123 @@
+@use "../../../assets/scss/fonts";
+@use "../../../assets/scss/variables" as variables;
+@use "../../../assets/scss/functions" as functions;
+@use "../../../assets/scss/mixins" as mixins;
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: grayscale(1);
+  backdrop-filter: grayscale(1);
+
+  .modal-box {
+    border: none !important;
+    border-radius: calc(5px * var(--ratio));
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 1.5rem;
+    background: variables.$light-color;
+    width: 30em;
+    height: 15em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .modal-header {
+      @include mixins.display-flex;
+      justify-content: space-between;
+      button {
+        background: none;
+        border: none;
+        &::before {
+          content: "\f00d";
+          cursor: pointer;
+          font-family: "FontAwesome";
+          font-size: 2em;
+          color: variables.$light-grey-color;
+        }
+      }
+
+      h2 {
+        color: variables.$blue-color;
+        text-transform: capitalize;
+      }
+    }
+
+    .modal-content {
+      form {
+        input {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      button {
+        padding: 10px 24px;
+        border: none;
+        color: variables.$light-color;
+        font-weight: 600;
+        cursor: pointer;
+        &[type="button"] {
+          background: variables.$dark-grey-color;
+        }
+        &[type="submit"] {
+          background: variables.$blue-color;
+          &:disabled {
+            cursor: auto;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  .modal-box {
+    width: 15em !important;
+    .modal-header {
+      button {
+        &::before {
+          font-size: 1.7em !important;
+        }
+      }
+      h2 {
+        font-size: 1.3em;
+      }
+    }
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media (min-width: 320px) and (max-width: 480px) {
+  .modal-box {
+    width: 20em !important;
+  }
+}
+
+/* Small Devices, Tablets */
+@media (min-width: 480px) and (max-width: 768px) {
+  .modal-box {
+    width: 25em !important;
+  }
+}

@@ -1,0 +1,37 @@
+@use "variables" as variables;
+
+
+@mixin display-flex {
+  display: flex;
+  align-items: center;
+}
+
+@mixin border-radius {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+@mixin responsive-todo-list-header {
+  .header {
+    flex-direction: column;
+    h3 {
+      font-size: 1em;
+    }
+  }
+}
+
+@mixin responsive-header {
+  background: variables.$blue-color !important;
+  padding: 0 0.5em !important;
+  margin: 0 !important;
+}
+
+@mixin responsive-img-style {
+  background: variables.$light-color !important;
+  padding: 5px !important;
+  img {
+    filter: saturate(0.5) !important;
+  }
+}
