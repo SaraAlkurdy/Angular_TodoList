@@ -15,7 +15,8 @@ body {
   background: variables.$primary-color;
   font-family: "Droid Arabic Kufi", serif;
 
-  button {
+  button,
+  select {
     &:hover {
       transform: scale(1.1);
       transition: transform 0.2s;

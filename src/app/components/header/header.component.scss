@@ -80,15 +80,6 @@ header {
     padding: 1em 1.5em;
     appearance: none;
     cursor: pointer;
-    &:hover {
-      background: variables.$blue-color;
-      color: variables.$light-color;
-    }
-    option {
-      &:hover {
-        background: variables.$blue-color;
-      }
-    }
   }
 }
 
