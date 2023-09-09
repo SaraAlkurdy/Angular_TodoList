@@ -1,17 +1,26 @@
 @use "variables" as variables;
+@use "functions" as functions;
 
+@mixin icons($font-size) {
+  font-family: "FontAwesome";
+  font-size: $font-size;
+}
 
-@mixin display-flex {
+@mixin display-flex($justify) {
   display: flex;
   align-items: center;
+  justify-content: $justify;
+}
+
+@mixin transform {
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @mixin border-radius {
-  border-radius: 50%;
+  border-radius: functions.border-radius(25%, 2);
   cursor: pointer;
 }
-
-
 
 @mixin responsive-todo-list-header {
   .header {

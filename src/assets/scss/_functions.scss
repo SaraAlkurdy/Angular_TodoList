@@ -1,3 +1,11 @@
-@function adjust_width($n) {
-    @return $n;
- }
+@function width($num) {
+  @return $num * 2;
+}
+
+@function height($num) {
+  @return calc($num / 2);
+}
+
+@function border-radius($num1, $num2) {
+  @return calc($num1 * $num2);
+}
