@@ -1,10 +1,9 @@
-@use "../../../assets/scss/fonts";
 @use "../../../assets/scss/variables" as variables;
 @use "../../../assets/scss/functions" as functions;
 @use "../../../assets/scss/mixins" as mixins;
 
 header {
-  height: 8em;
+  height: functions.height(16em);
   position: relative;
   display: grid;
   align-items: center;
@@ -15,15 +14,14 @@ header {
   );
 
   .sub-header {
-    @include mixins.display-flex;
-    justify-content: space-between;
+    @include mixins.display-flex(space-between);
     background: linear-gradient(
       -45deg,
       variables.$light-color 35%,
       transparent 42%,
       variables.$blue-color 36%
     );
-    height: 5em;
+    height: functions.height(10em);
     padding: 0 variables.$primary-size;
     margin-right: variables.$primary-size;
     &[dir="rtl"] {
@@ -39,16 +37,16 @@ header {
         }
       }
       &:nth-child(2) {
-        @include mixins.display-flex;
+        @include mixins.display-flex(center);
         .img-style {
           background: variables.$blue-color;
           display: flex;
           height: auto;
           padding: 10px;
-          border-radius: 5px;
+          border-radius: functions.border-radius(2.5px, 2);
           width: variables.$primary-size;
           img {
-            width: 100%;
+            width: functions.width(50%);
             filter: brightness(0) invert(1);
           }
         }
@@ -150,7 +148,7 @@ header {
     > img {
       left: variables.$primary-size !important;
       top: 5em !important;
-      width: 4em;
+      width: functions.width(variables.$primary-size);
     }
   }
 }

@@ -1,4 +1,3 @@
-@use "../../../assets/scss/fonts";
 @use "../../../assets/scss/variables" as variables;
 @use "../../../assets/scss/functions" as functions;
 @use "../../../assets/scss/mixins" as mixins;
@@ -6,21 +5,18 @@
 main {
   padding: 19em 0;
   .todo-list {
-    width: 40%;
+    width: functions.width(20%);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     background: variables.$light-color;
     padding: variables.$primary-size;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
+    @include mixins.transform;
+    border-radius: functions.border-radius(2.5px, 2);
 
     .header {
-      @include mixins.display-flex;
-      justify-content: space-between;
+      @include mixins.display-flex(space-between);
       #currentDate {
-        @include mixins.display-flex;
-        justify-content: space-between;
+        @include mixins.display-flex(space-between);
         color: variables.$grey-color;
         h2 {
           font-size: 3em;
@@ -33,7 +29,7 @@ main {
           display: flex;
           flex-direction: column;
           span {
-            line-height: 1.5em;
+            line-height: functions.height(3em);
             text-align: center;
           }
         }
@@ -48,9 +44,8 @@ main {
       padding: variables.$primary-size 0;
       ul {
         li {
-          @include mixins.display-flex;
+          @include mixins.display-flex(space-between);
           flex-direction: row-reverse;
-          justify-content: space-between;
           margin-bottom: 1em;
           .actions {
             display: flex;
@@ -59,9 +54,8 @@ main {
               border: none;
               cursor: pointer;
               &::before {
-                font-family: "FontAwesome";
+                @include mixins.icons(1.5em);
                 display: block;
-                font-size: 1.5em;
               }
               &[role="update"] {
                 &::before {
@@ -81,12 +75,11 @@ main {
                   color: variables.$blue-color;
                 }
               }
-
-              + label {
-                color: variables.$dark-grey-color;
-                font-weight: 600;
-                width: 20em;
-              }
+            }
+            + label {
+              color: variables.$dark-grey-color;
+              font-weight: 600;
+              width: functions.width(10em);
             }
           }
         }
@@ -98,21 +91,17 @@ main {
       display: flex;
       justify-content: center;
       button {
-        cursor: pointer;
         position: absolute;
-        height: variables.$secondary-size;
+        height: functions.height(8em);
         width: variables.$secondary-size;
-        padding-left: 1rem;
-        padding-right: 1rem;
         background: variables.$green-color;
         border: none;
-        border-radius: 50%;
+        @include mixins.display-flex(center);
+        @include mixins.border-radius;
         &::before {
           content: "\2b";
-          font-family: "FontAwesome";
-          font-size: 3em;
+          @include mixins.icons(3em);
           color: variables.$secondary-color;
-          font-weight: bold;
         }
         &:hover {
           background-color: variables.$secondary-color;
@@ -128,7 +117,7 @@ main {
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {
   .todo-list {
-    width: 80% !important;
+    width: functions.width(40%) !important;
     @include mixins.responsive-todo-list-header;
   }
 }
@@ -136,7 +125,7 @@ main {
 /* Extra Small Devices, Phones */
 @media (min-width: 320px) and (max-width: 480px) {
   .todo-list {
-    width: 80% !important;
+    width: functions.width(40%) !important;
     @include mixins.responsive-todo-list-header;
   }
 }
@@ -144,7 +133,7 @@ main {
 /* Small Devices, Tablets */
 @media (min-width: 480px) and (max-width: 768px) {
   .todo-list {
-    width: 60% !important;
+    width: functions.width(30%) !important;
     @include mixins.responsive-todo-list-header;
   }
 }
@@ -152,7 +141,6 @@ main {
 /* Medium Devices, Desktops */
 @media (min-width: 768px) and (max-width: 992px) {
   .todo-list {
-    width: 40% !important;
     @include mixins.responsive-todo-list-header;
   }
 }

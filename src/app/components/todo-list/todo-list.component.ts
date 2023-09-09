@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { map, take } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { TodoListService } from 'src/app/services/todo-list.service';
-import { TodoListFormComponent } from '../todo-list-form/todo-list-form.component';
 import { TodoList } from 'src/app/models/todolist.interface';
 
 @Component({
@@ -58,7 +57,7 @@ export class TodoListComponent implements OnInit {
     this.isEdit = true;
   }
 
-  handleRecievedDate(value: TodoList) {
+  handleReceivedDate(value: TodoList) {
     if (this.isEdit == false) this.todoList.push(value);
     else {
       const index = this.todoList.findIndex((e: TodoList) => e.id == value.id);
